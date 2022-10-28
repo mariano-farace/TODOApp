@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-const Form = ({ inputText, setInputText, todos, setTodos, setFilter }) => {
+const Form = ({ todos, setTodos, setFilter }) => {
+  const [inputText, setInputText] = useState("");
+
   const inputTextHandler = (e) => {
     setInputText(e.target.value);
   };

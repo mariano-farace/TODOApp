@@ -3,7 +3,6 @@ import "./App.css";
 import Form from "./components/Form";
 import TodoList from "./components/TodoList";
 function App() {
-  const [inputText, setInputText] = useState("");
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState("all");
   const [filteredTodos, setFilteredTodos] = useState([]);
@@ -26,18 +25,13 @@ function App() {
   useEffect(() => {
     console.log("sale el useEffect");
     filterHandler();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter, todos]);
 
   return (
     <div className="App">
       <header>Todo List</header>
-      <Form
-        inputText={inputText}
-        setInputText={setInputText}
-        todos={todos}
-        setTodos={setTodos}
-        setFilter={setFilter}
-      />
+      <Form todos={todos} setTodos={setTodos} setFilter={setFilter} />
       <TodoList
         setTodos={setTodos}
         filteredTodos={filteredTodos}
