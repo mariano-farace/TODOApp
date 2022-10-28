@@ -6,7 +6,6 @@ const Todo = ({ todoItem, todos, setTodos }) => {
   };
 
   const markAsCompleteHandler = () => {
-    console.log("TODOS error:", todos);
     const updatedTodoArray = todos.map((element) => {
       if (element.id === todoItem.id) {
         return { ...todoItem, completed: !todoItem.completed };

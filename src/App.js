@@ -3,6 +3,8 @@ import "./App.css";
 import Form from "./components/Form";
 import TodoList from "./components/TodoList";
 function App() {
+  //TODO en vez de pasar tantos componenetes para abajo, como el estado, seguro puedas usar prevstate REFACTOR
+
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState("all");
   const [filteredTodos, setFilteredTodos] = useState([]);
@@ -23,7 +25,6 @@ function App() {
   };
 
   useEffect(() => {
-    console.log("sale el useEffect");
     filterHandler();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter, todos]);
@@ -40,5 +41,5 @@ function App() {
     </div>
   );
 }
-//TODO en vez de pasar tantos componenetes para abajo, como el estado, seguro puedas usar prevstate REFACTOR
+
 export default App;
