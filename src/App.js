@@ -26,7 +26,7 @@ function App() {
   useEffect(() => {
     console.log("sale el useEffect");
     filterHandler();
-  }, [filter]);
+  }, [filter, todos]);
 
   return (
     <div className="App">
@@ -38,11 +38,7 @@ function App() {
         setTodos={setTodos}
         setFilter={setFilter}
       />
-      <TodoList
-        todos={todos}
-        setTodos={setTodos}
-        filteredTodos={filteredTodos}
-      />
+      <TodoList setTodos={setTodos} filteredTodos={filteredTodos} />
     </div>
   );
 }
