@@ -5,7 +5,9 @@ import TodoList from "./components/TodoList";
 function App() {
   //TODO en vez de pasar tantos componenetes para abajo, como el estado, seguro puedas usar prevstate REFACTOR
 
-  const [todos, setTodos] = useState([]);
+  const initialState = JSON.parse(localStorage.getItem("todos")) || [];
+
+  const [todos, setTodos] = useState(initialState);
   const [filter, setFilter] = useState("all");
   const [filteredTodos, setFilteredTodos] = useState([]);
 
@@ -24,8 +26,13 @@ function App() {
     }
   };
 
+  const saveToLocalStorage = () => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  };
+
   useEffect(() => {
     filterHandler();
+    saveToLocalStorage();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter, todos]);
 
